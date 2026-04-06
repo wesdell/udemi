@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { DM_Sans, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -26,7 +27,9 @@ export default function RootLayout({
       lang="en" className={cn("font-sans", geist.variable)}
     >
       <body className={`${dmSans.className}`}>
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
       </body>
     </html>
   );
