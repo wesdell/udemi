@@ -30,7 +30,9 @@ export default function RootLayout({
       <body className={`${dmSans.className}`}>
         <Providers>
           <TooltipProvider>
-            {children}
+            <div className="root-layout">
+              {children}
+            </div>
           </TooltipProvider>
         </Providers>
       </body>
