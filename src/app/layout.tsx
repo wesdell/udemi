@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist } from "next/font/google";
-import "./globals.css";
+
+import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+import "./globals.css";
 import Providers from "./providers";
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
@@ -24,18 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en" className={cn("font-sans", geist.variable)}
-    >
-      <body className={`${dmSans.className}`}>
-        <Providers>
-          <TooltipProvider>
-            <div className="root-layout">
-              {children}
-            </div>
-          </TooltipProvider>
-        </Providers>
-      </body>
-    </html >
+    <ClerkProvider>
+      <html
+        lang="en" className={cn("font-sans", geist.variable)}
+      >
+        <body className={`${dmSans.className}`}>
+          <Providers>
+            <TooltipProvider>
+              <div className="root-layout">
+                {children}
+              </div>
+            </TooltipProvider>
+          </Providers>
+        </body>
+      </html >
+    </ClerkProvider>
   );
 }
