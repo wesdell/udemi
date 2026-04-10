@@ -29,7 +29,7 @@ const AppSidebar = () => {
   const pathname = usePathname();
   const { signOut } = useClerk();
   const { user, isLoaded } = useUser();
-  const { toggleSidebar } = useSidebar();
+  const { open, openMobile, toggleSidebar } = useSidebar();
 
   const navLinks = {
     student: [
@@ -140,7 +140,7 @@ const AppSidebar = () => {
               className="app-sidebar__signout"
             >
               <LogOut className="mr-2 h-6 w-6" />
-              <span>Sign out</span>
+              {(open || openMobile) && <span>Sign out</span>}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

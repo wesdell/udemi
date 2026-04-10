@@ -587,7 +587,7 @@ input[type="color"] {
 }
 
 .dashboard__body {
-  @apply px-8 py-4;
+  @apply px-8 py-4 md:ml-20;
 }
 
 /* Course Page */
@@ -1537,7 +1537,7 @@ input[type="color"] {
 }
 
 .dashboard-navbar__search {
-  @apply flex justify-between items-center gap-2 sm:gap-5;
+  @apply flex justify-between items-center gap-2 sm:gap-5 md:ml-14;
 }
 
 .dashboard-navbar__search-input {

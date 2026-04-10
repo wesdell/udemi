@@ -54,7 +54,9 @@ export default function DashboardLayout({
             style={{ height: "100vh" }}
           >
             <Navbar isCoursePage={isCoursePage} />
-            <main className="dashboard__body">{children}</main>
+            <main className="dashboard__body">
+              {children}
+            </main>
           </div>
         </div>
       </div>
