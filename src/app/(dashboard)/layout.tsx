@@ -41,7 +41,9 @@ export default function DashboardLayout({
   }
 
   return (
-    <SidebarProvider>
+    <SidebarProvider
+      defaultOpen={false}
+    >
       <div className="dashboard">
         <AppSidebar />
         <div className="dashboard__content">
