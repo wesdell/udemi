@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+import { Toaster } from "sonner";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
               <div className="root-layout">
                 {children}
               </div>
+              <Toaster richColors closeButton />
             </TooltipProvider>
           </Providers>
         </body>
