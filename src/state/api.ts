@@ -77,6 +77,15 @@ export const api = createApi({
         body: updatedUser
       }),
       invalidatesTags: ["Users"]
+    }),
+
+    // Transactions
+    createStripePaymentIntent: build.mutation<{ clientSecret: string }, { amount: number }>({
+      query: ({ amount }) => ({
+        url: "/transactions/stripe/payment-intent",
+        method: "POST",
+        body: { amount }
+      })
     })
   }),
 });
@@ -84,5 +93,6 @@ export const api = createApi({
 export const {
   useGetCoursesQuery,
   useGetCourseQuery,
-  useUpdateUserMutation
+  useUpdateUserMutation,
+  useCreateStripePaymentIntentMutation
 } = api;
