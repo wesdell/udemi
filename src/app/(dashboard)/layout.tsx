@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 
 import { useUser } from "@clerk/nextjs";
 
+import { cn } from "@/lib/utils";
 import AppSidebar from "@/components/AppSidebar";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
+import ChaptersSidebar from "./user/courses/[courseId]/ChaptersSidebar";
 
 export default function DashboardLayout({
   children,
@@ -47,11 +48,11 @@ export default function DashboardLayout({
       <div className="dashboard">
         <AppSidebar />
         <div className="dashboard__content">
-          {/* {courseId && <ChaptersSidebar />} */}
+          {courseId && <ChaptersSidebar />}
           <div
             className={cn(
               "dashboard__main",
-              !isCoursePage && "dashboard__main--not-course"
+              isCoursePage && "dashboard__main--not-course"
             )}
             style={{ height: "100vh" }}
           >
