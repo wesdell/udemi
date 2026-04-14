@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import type { Metadata } from "next";
 import { DM_Sans, Geist } from "next/font/google";
 
@@ -35,9 +37,11 @@ export default function RootLayout({
         <body className={`${dmSans.className}`}>
           <Providers>
             <TooltipProvider>
-              <div className="root-layout">
-                {children}
-              </div>
+              <Suspense fallback={null}>
+                <div className="root-layout">
+                  {children}
+                </div>
+              </Suspense>
               <Toaster richColors closeButton />
             </TooltipProvider>
           </Providers>
